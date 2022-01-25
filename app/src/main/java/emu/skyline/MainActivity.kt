@@ -19,6 +19,7 @@ import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
 import androidx.core.content.res.use
 import androidx.core.graphics.drawable.toBitmap
+import androidx.core.view.WindowCompat
 import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
 import androidx.core.view.size
@@ -101,6 +102,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         setContentView(binding.root)
+        WindowCompat.setDecorFitsSystemWindows(window, false)
 
         PreferenceManager.setDefaultValues(this, R.xml.preferences, false)
 
