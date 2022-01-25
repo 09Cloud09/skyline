@@ -8,6 +8,7 @@ package emu.skyline.preference
 import android.graphics.Rect
 import android.os.Bundle
 import android.view.*
+import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import emu.skyline.databinding.LicenseDialogBinding
 
@@ -30,6 +31,13 @@ class LicenseDialog : BottomSheetDialogFragment() {
             root.minimumHeight = ((displayRectangle.height() * 0.9f).toInt())
             binding = this
         }.root
+    }
+
+    override fun onStart() {
+        super.onStart()
+
+        val behavior = BottomSheetBehavior.from(requireView().parent as View)
+        behavior.addBottomSheetCallback(binding.dragIndicator.callback)
     }
 
     override fun onViewCreated(view : View, savedInstanceState : Bundle?) {
